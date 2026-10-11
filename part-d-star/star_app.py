@@ -220,7 +220,7 @@ band["lum"] = Ms ** 3.5 * zr ** -0.1
 band["temp_K"] = SUN_T * (band["lum"] / Ms ** 1.6) ** 0.25
 
 LUM_DOMAIN = [1e-4, 1e6]
-T_DOMAIN = [200000, 1500]
+T_DOMAIN = [1500, 200000]
 AXIS = dict(gridColor="#2b303b", labelColor="#c8c8c8",
             titleColor="#c8c8c8")
 HX = alt.X("temp_K:Q", title="surface temperature (K), log scale",
@@ -242,7 +242,7 @@ hr_labels = alt.Chart(pd.DataFrame({
     "lum":    [4.0, 3e4, 3e-3],
     "t":      ["main sequence", "giants", "white dwarfs"],
     "c":      ["#8a919b", "#c73b25", "#b7aec4"],
-    "a":      [-38, 0, 0],
+    "a":      [38, 0, 0],
 })).mark_text(fontSize=11).encode(
     x=HX, y=HY, text="t:N", angle=alt.Angle("a:Q", scale=None),
     color=alt.Color("c:N", scale=None, legend=None))
